@@ -1,0 +1,60 @@
+Root
+
+README.md — project overview, setup instructions, how to run
+requirements.txt — all Python packages needed (ultralytics, fiftyone, smbus2 etc)
+.gitignore — prevents images, weights, and cache from being pushed to GitHub
+
+
+datasets/coco_subset/
+
+download_coco.py — pulls only your specific classes from COCO, not the full 25GB
+convert_to_yolo.py — converts COCO's JSON annotation format → YOLO .txt format
+verify_labels.py — checks for broken/missing labels before training
+
+datasets/stairs/
+
+download_stairs.py — pulls the Kaggle stairs dataset via Kaggle API
+remap_classes.py — aligns stairs dataset class IDs to match your combined data.yaml
+
+datasets/combined/
+
+merge_datasets.py — combines both datasets into one train/val folder split
+data.yaml — master class list, every teammate works from this, IDs never change
+
+
+model/
+
+train.py — runs the actual YOLOv8n training on your combined dataset
+validate.py — checks model accuracy (mAP scores) after training
+export.py — converts trained model to NCNN format for Raspberry Pi
+
+
+firmware/ ← runs live on the Pi inside the cap
+
+main.py — master loop, ties everything together, runs continuously
+inference/detector.py — loads NCNN model, runs YOLO on each camera frame
+inference/tracker.py — tracks objects across frames so alerts don't fire every single frame
+sensors/tof_sensor.py — reads distance from ToF4M over I2C
+sensors/lidar.py — reads LiDAR scan data
+haptics/motor_controller.py — fires GPIO pins to trigger vibration motors
+haptics/patterns.py — defines default patterns (pulse, buzz, wave etc)
+haptics/profile_loader.py — loads the user's custom JSON profile synced from the app
+fusion/sensor_fusion.py — combines YOLO detections + ToF distance + LiDAR → decides which motor fires, how hard, what pattern
+
+
+app/ ← React Native mobile app
+
+screens/HomeScreen.jsx — landing screen, shows connection status to cap
+screens/ProfileScreen.jsx — lists user's saved haptic profiles
+screens/CustomiseScreen.jsx — editor where user sets pattern + intensity per object
+components/ObjectCard.jsx — one card per detectable object (person, stairs, car etc)
+components/VibrationPicker.jsx — UI to pick pattern, intensity, duration
+components/TestBuzzButton.jsx — sends a live test buzz to the cap via Bluetooth
+bluetooth/SerenConnect.js — handles BLE pairing, connection, and syncing profile JSON to Pi
+
+
+hardware/
+
+wiring_diagram.md — exact GPIO pin connections for motors, ToF4M, LiDAR on Pi 4
+motor_placement.md — where each motor sits inside the cap (front/back/left/right)
+parts_list.md — full hardware shopping list with specs

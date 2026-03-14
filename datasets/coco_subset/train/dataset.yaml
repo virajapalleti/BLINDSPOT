@@ -5,5 +5,5 @@ names:
   3: couch
   4: bed
   5: refrigerator
-path: C:\Users\palle\Downloads\all projects\SEREN-1\datasets\coco_subset\train
+path: C:\Users\palle\Downloads\all projects\BLINDSPOT\datasets\coco_subset\train
 val: .\images\val\

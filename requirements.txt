@@ -1,0 +1,10 @@
+ultralytics
+fiftyone
+kaggle
+opencv-python
+numpy
+Pillow
+tqdm
+pyyaml
+smbus2
+RPi.GPIO
