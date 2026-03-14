@@ -1,0 +1,17 @@
+
+datasets/coco-subset/train/
+datasets/stairs/stairs/
+datasets/combined/images/
+datasets/combined/labels/
+
+datasets/stairs/images/
+datasets/stairs/labels/
+datasets/coco_subset/
+datasets/combined/
+
+weights/best.pt
+weights/yolov8n.pt
+yolov8n.pt
+runs/
+
+*.cache
