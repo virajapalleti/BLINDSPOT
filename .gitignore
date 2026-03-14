@@ -1,4 +1,14 @@
-
+__pycache__/
+*.pyc
+*.pyo
+.env
+datasets/combined/images/
+datasets/combined/labels/
+datasets/coco_subset/train/images/
+datasets/coco_subset/train/labels/
+datasets/stairs/stairs/
+*.pt
+!weights/best_ncnn_model/
 
 weights/best.pt
 weights/yolov8n.pt
