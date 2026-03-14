@@ -1,0 +1,8 @@
+{
+  "name": "BlindSpot",
+  "short_name": "BlindSpot",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1e3f",
+  "theme_color": "#6367FF"
+}
