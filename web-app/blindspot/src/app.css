@@ -103,6 +103,7 @@ body {
     border-radius:18px; padding:26px 20px; cursor:pointer;
     transition:all 0.25s; display:flex; flex-direction:column; gap:12px;
     position:relative; overflow:hidden;
+    align-items: center;
   }
   .nav-card::before {
     content:''; position:absolute; top:0; left:0; right:0; height:3px;
@@ -111,8 +112,8 @@ body {
   .nav-card:hover::before { transform:scaleX(1); }
   .nav-card:hover { border-color:var(--ac, var(--indigo)); transform:translateY(-3px); background:var(--surface2); }
   .nav-card .ci { font-size:2rem; line-height:1; }
-  .nav-card .ct { font-weight:700; font-size:1.1rem; color:var(--text); }
-  .nav-card .cd { font-size:0.9rem; color:var(--muted); line-height:1.4; }
+  .nav-card .ct { font-weight:700; font-size:1.1rem; color:var(--text); text-align: center; }
+  .nav-card .cd { font-size:0.9rem; color:var(--muted); line-height:1.4; text-align: center; }
 
   /* ===== INNER SCREENS ===== */
   .page-content {
